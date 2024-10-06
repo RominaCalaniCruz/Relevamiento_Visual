@@ -1,0 +1,11 @@
+ion-content{
+    --background: #f9e5c0;
+  }
+  ion-toolbar{
+    --background: #ff667c;
+    font-family: 'Alkatra';
+    --color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }

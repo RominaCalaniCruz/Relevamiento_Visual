@@ -1,0 +1,104 @@
+
+
+<!-- <ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar style="--background: #2c171c !important; color:white">
+      <ion-title style="letter-spacing: 3px;">Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding" style="--background:#b6d0a0;">
+  
+      <ion-menu-toggle autoHide="true">
+        <ion-button (click)="verHome()" style="color: black;" fill="clear" >
+          <ion-icon style="padding-right: 30px; " name="log-out-outline"></ion-icon> 
+          Inicio
+        </ion-button>
+        <ion-button  style="color: black;" fill="clear" >
+          <ion-icon style="padding-right: 30px; " name="camera-outline"></ion-icon> 
+          Ver lista de fotos
+        </ion-button>
+
+        <ion-button style="color: black;" fill="clear">
+          <ion-icon style="padding-right: 30px; " name="images-outline"></ion-icon> 
+          Ver Graficos
+        </ion-button>
+
+        <ion-button style="color: black;" fill="clear" >
+          <ion-icon style="padding-right: 30px; " name="log-out-outline"></ion-icon> 
+          Cerrar Sesión
+        </ion-button>
+      </ion-menu-toggle>
+  </ion-content>
+</ion-menu> -->
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar style="background-color: black;" >
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()" style="color: white;">
+        <ion-icon color="secondary" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+      
+      <ion-title style="opacity: 1;font-size: 22px;color: white;" >Relevamiento Visual</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content >
+
+    <ion-header collapse="condense">
+      <ion-toolbar>
+
+        <ion-title size="medium" style="font-size: larger;">Fotos</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>Connor Smith</h2>
+          <p>Sales Rep</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://i.pravatar.cc/300?u=a"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>Daniel Smith</h2>
+          <p>Product Designer</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://i.pravatar.cc/300?u=d"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>Greg Smith</h2>
+          <p>Director of Operations</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://i.pravatar.cc/300?u=e"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>Zoey Smith</h2>
+          <p>CEO</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+      <ion-item *ngFor="let foto of fotos">
+        <ion-img [src]="foto.image" alt="Foto"></ion-img>
+        <ion-label>{{foto.name}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</div>
+
+

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar style="background-color: black;" >
+    <ion-buttons slot="start" >
+      <ion-button (click)="goBack()" style="color: rgb(0, 0, 0);">
+      <ion-icon color="secondary"  name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+    
+    <ion-title color="secondary" >Lista de cosas lindas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid>
+    <ion-row style="display: flex; justify-content: center; align-items: center;">
+      <ion-col size="10" *ngFor="let photo of fotos">
+        <div class="fireworks-wrapper">
+        <ion-card class="custom-card">
+          <ion-spinner *ngIf="photo.loading" name="lines-sharp"></ion-spinner>
+          <ion-img  [src]="photo.url" (ionImgDidLoad)="onImageLoad(photo)"></ion-img>
+          <ion-card-content style="    display: flex;
+          flex-direction: column;">
+            <ion-card-title style="text-align: center; ">{{ photo.autor }}</ion-card-title>
+            <ion-card-title style="text-align: center; ">{{ photo.fechaFormateada }}</ion-card-title>
+            <ng-container *ngIf="photo.arrayUsuarios.includes(idUser); else likeButton">
+              <ion-button (click)="unlikePhoto(photo)">
+                <ion-icon slot="start" name="heart-dislike"></ion-icon>
+                YA NO ME GUSTA
+              </ion-button>
+            </ng-container>
+            <ng-template #likeButton>
+              <ion-button (click)="likePhoto(photo)">
+                <ion-icon slot="start" name="heart"></ion-icon>
+                ME GUSTA
+              </ion-button>
+            </ng-template>
+          </ion-card-content>
+        </ion-card>
+        <div id="fireworks-container-{{photo.id}}" class="fireworks-container"></div>
+      </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

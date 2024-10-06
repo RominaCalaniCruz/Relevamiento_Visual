@@ -1,0 +1,47 @@
+
+
+<ion-header>
+  <ion-toolbar style="background-color: black;" >
+    <ion-buttons slot="start" >
+      <ion-button (click)="goBack()" style="color: rgb(0, 0, 0);">
+      <ion-icon color="secondary"  name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+    
+    <ion-title color="secondary" >Mis fotos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" value="lindo">
+    <ion-segment-button value="lindo">
+      <ion-label>Lindas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="feo">
+      <ion-label>Feas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="!hayFotosLindas && opcionSeleccionada=='lindo' ">
+    <h1>No hay fotos lindas</h1>
+  </div>
+
+  <div *ngIf="!hayFotosFeas && opcionSeleccionada=='feo'">
+    <h1>No hay fotos feas</h1>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of filteredPhotos">
+        <ion-card class="custom-card">
+          <ion-spinner *ngIf="photo.loading" name="dots"></ion-spinner>
+          <ion-img  [src]="photo.url" (ionImgDidLoad)="onImageLoad(photo)"></ion-img>
+          <ion-card-content>
+            <ion-card-title style="color: white;font-size: large; text-align: center;">Tu foto recibió:</ion-card-title>
+            <ion-card-title style="color: #D66F8E; font-size: large; text-align: center;">{{ photo.cantLikes }} me gusta(s)</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

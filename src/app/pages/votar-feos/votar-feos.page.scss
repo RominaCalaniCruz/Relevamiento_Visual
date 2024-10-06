@@ -1,0 +1,42 @@
+ion-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  ion-content{
+    --background: #F1C5D0;
+  }
+  ion-toolbar{
+    --background: #D66F8E;
+    font-family: 'Alkatra';
+    --color: black;
+  }
+  .custom-card {
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Para que el contenedor de fuegos artificiales se posicione relativo a la tarjeta */
+  }
+  
+  .fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    // z-index: 10; /* Asegúrate de que sea mayor que cualquier otro contenido dentro de la tarjeta */
+    pointer-events: none; /* Para que los fuegos artificiales no interfieran con los clics */
+  }
+  .fireworks-wrapper {
+    position: relative;
+  }
+  .custom-card {
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajusta estos valores según tus necesidades */
+    transition: box-shadow 0.3s ease; /* Añade una transición para un efecto suave */
+    background: transparent !important;
+    -webkit-box-shadow: -1px 7px 27px 14px rgba(204,118,183,1);
+-moz-box-shadow: -1px 7px 27px 14px rgba(204,118,183,1);
+box-shadow: -1px 7px 27px 14px rgba(204,118,183,1);
+ 
+  }

@@ -1,0 +1,7 @@
+{
+  "name": "Relevamiento Visual",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

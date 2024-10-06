@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar style="background-color: black;" >
+    <ion-buttons slot="start" >
+      <ion-button (click)="goBack()" style="color: rgb(0, 0, 0);">
+      <ion-icon color="secondary"  name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+    
+    <ion-title color="secondary" >Gráficos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" value="lindo">
+    <ion-segment-button value="lindo">
+      <ion-label>Fotos lindas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="feo">
+      <ion-label>Fotos feas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="!hayFotosLindas && opcionSeleccionada=='lindo' ">
+    <h1>No hay datos de fotos lindas para generar un grafico.</h1>
+  </div>
+
+  <div *ngIf="!hayFotosFeas && opcionSeleccionada=='feo'">
+    <h1>No hay datos de fotos feas para generar un grafico.</h1>
+  </div>
+
+  
+
+  <!-- <div style="width: auto; height: auto;">
+    <canvas id="graficoTorta" width="400" height="400"></canvas>
+  </div> -->
+  <div *ngIf="opcionSeleccionada=='lindo'" class="graficoTortaDiv">
+    <canvas id="graficoTorta"></canvas>
+    <!-- Tooltip personalizado -->
+    <div id="chartjs-tooltip" style="opacity: 0; position: absolute; pointer-events: none; transition: all .1s ease;">
+      <img id="tooltip-img" style="width: 120px; height: 120px; display: block; margin: 0 auto;" />
+      <div id="tooltip-text" style="text-align: center; color: #fff; font-size: 14px;"></div>
+    </div>
+  </div>
+
+  <div *ngIf="opcionSeleccionada =='feo'" class="graficoBarrasDiv" style="    margin-left: 20px;position: absolute; height:60vh; width:90%">
+    <canvas id="graficoBarras"></canvas>
+    <div id="chartjs-tooltip1" style="opacity: 0; position: absolute; pointer-events: none; transition: all .1s ease;">
+      <img id="tooltip-img1" style="width: 120px; height: 120px; display: block; margin: 0 auto;" />
+      <div id="tooltip-text1" style="text-align: center; color: #fff; font-size: 14px;"></div>
+    </div>
+  </div>
+
+</ion-content>

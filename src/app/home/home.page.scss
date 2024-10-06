@@ -1,0 +1,93 @@
+
+ion-content{
+  --background: #F1C5D0;
+}
+ion-toolbar{
+  --background: #D66F8E;
+  font-family: 'Alkatra';
+  --color: black;
+}
+.boton-lindo{
+  border-radius: 18px !important;
+  border: 3px solid #D66F8E;
+  letter-spacing: 2px;
+  // width: 100%; /* Ocupa la mitad del ancho del ion-content */
+  height: 47%; /* Ocupa toda la altura del ion-content */
+  background-image: url("../../assets/img/fotos-lindas.jpg");
+  background-size: cover; /* Ajusta la imagen al tamaño del botón */
+  background-position: center; /* Centra la imagen en el botón */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  font-family: 'Alkatra';
+}
+
+ion-menu-toggle{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  // justify-content: flex-start !;
+  // ion-button{
+    
+  //   background-color: gray;
+    
+  //   border-radius: 15px;
+  // }
+}
+.boton-feo{
+  border-radius: 18px !important;
+  border: 3px solid #D66F8E;
+  letter-spacing: 2px;
+  font-family: 'Alkatra';
+  // width: 100%; /* Ocupa la mitad del ancho del ion-content */
+  height: 47%; /* Ocupa toda la altura del ion-content */
+  background-image: url("../../assets/img/fotos-feas.jpg");
+  background-size: cover; /* Ajusta la imagen al tamaño del botón */
+  background-position: center; /* Centra la imagen en el botón */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+ion-label{
+  display: contents;
+  width: 100%;
+  font-size: 19px !important;
+  margin: 15px 0;
+}
+.menu-despegar{
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+
+
+}
+
+
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: #fbbaa4;
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #D66F8E;
+  --color: rgb(255, 255, 255);
+}
+.image-icon{
+  margin-top: 15px !important;
+  font-size: 100px;
+  opacity: 30%;
+  display: flex;
+  align-items: center;
+}
+.imagen-subida{
+  width: 200px;
+  height: 200px;
+  // --border-radius: 15px;
+  margin-top: 10px;
+  margin: 0 auto;
+}

@@ -1,0 +1,109 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar style="--background: #D66F8E !important; color:white">
+      <ion-title style="letter-spacing: 3px;">Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding" style="--ion-background-color: #F1C5D0 !important;">
+      <ion-list lines="none">
+        <ion-item style="--ion-background-color: #D66F8E !important; border-radius: 10px;">
+          <ion-icon slot="start" name="person"></ion-icon>
+          <ion-label>{{ nombreUsuario }}</ion-label>
+        </ion-item>
+        <ion-menu-toggle class="menu-toggle-custom" auto-hide="false" *ngFor="let opcion of opciones">
+          <ion-item [routerLink]="opcion.url" (click)="toggleMenu()">
+            <ion-icon slot="start" [name]="opcion.icono"></ion-icon>
+            <ion-label>{{ opcion.titulo }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-button (click)="cerrarSesion()" style="margin-top: 15px; font-size: 18px;" expand="block" shape="round">
+          Salir
+        </ion-button>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        <ion-menu-button style="color: white;"></ion-menu-button>
+      </ion-buttons>
+      <ion-title style="font-size: 22px;color: white;" >Relevamiento Visual</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class=""> 
+   
+    <ion-button (click)="setCategoria('lindo')"  id="open-camera1" expand="block" style="color: white; --background: #0000004f; font-size: 30px;" class="boton-lindo"  fill="clear" >
+      Cosas Lindas
+    </ion-button>
+
+    <ion-button (click)="setCategoria('feo')" id="open-camera2" expand="block" style="color: white; --background: #0000004f; font-size: 30px;" class="boton-feo"  fill="clear">
+      Cosas Feas
+    </ion-button>
+
+
+    <ion-modal #modal trigger="open-camera1"  (ionModalDidDismiss)="limpiarFotoPreview()">
+      <ng-template>
+        <ion-content>
+          <ion-toolbar>
+            <ion-title>Tomar Foto Linda</ion-title>
+            <ion-buttons slot="end">
+              <ion-button color="dark" (click)="modal.dismiss()">Cancelar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+
+          <ion-button *ngIf="!fotoPreview"  style="margin-top: 10px !important; margin-bottom: 15px !important;" (click)="tomarFoto()" expand="block" shape="round">
+            Tomar/Elegir Foto
+          </ion-button>
+
+          <ion-button style="margin-top: 10px !important; margin-bottom: 15px !important;" *ngIf="fotoPreview" (click)="guardarFoto()"  expand="block" shape="round">
+            Subir Imagen
+          </ion-button>
+
+          <div *ngIf="fotoPreview" class="imagen-subida">
+            <img [src]="fotoPreview" />
+          </div>
+
+          <ion-icon class="image-icon" *ngIf="!(fotoPreview)" style="align-items: center !important; margin: 0 auto;" name="images-outline"></ion-icon>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <ion-modal #modal2 trigger="open-camera2" (ionModalDidDismiss)="limpiarFotoPreview()">
+      <ng-template>
+        <ion-content>
+
+          <ion-toolbar>
+            <ion-title>Tomar Foto Fea</ion-title>
+            <ion-buttons slot="end">
+              <ion-button color="dark" (click)="modal2.dismiss()">Cancelar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+
+          <ion-button *ngIf="!fotoPreview"  style="margin-top: 10px !important; margin-bottom: 15px !important;" (click)="tomarFoto()" expand="block" shape="round">
+            Tomar/Elegir Foto
+          </ion-button>
+
+          <ion-button style="margin-top: 10px !important; margin-bottom: 15px !important;" *ngIf="fotoPreview" (click)="guardarFoto()"  expand="block" shape="round">
+            Subir Imagen
+          </ion-button>
+          
+
+          <div *ngIf="fotoPreview" class="imagen-subida">
+            <img [src]="fotoPreview" />
+          </div>
+
+          <ion-icon class="image-icon" *ngIf="!(fotoPreview)" style="align-items: center !important; margin: 0 auto;" name="images-outline"></ion-icon>
+
+          
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    
+
+  </ion-content>
+</div>

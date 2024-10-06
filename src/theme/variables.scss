@@ -1,0 +1,21 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+:root {
+    --ion-color-primary: #D66F8E;
+	--ion-color-secondary: #fcfcfc;
+    --ion-color-secondary-rgb: 130,163,82;
+	--ion-color-secondary-contrast: #ffffff;
+	--ion-color-secondary-contrast-rgb: 0,0,0;
+	--ion-color-secondary-shade: #ffffff;
+	--ion-color-secondary-tint: #ffffff;
+    span.button-inner{
+        justify-content: flex-start !important;
+      }
+      .menu-background {
+        --ion-background-color: transparent;
+      }
+      body{
+
+        font-family: 'Alkatra' !important;
+      }
+}
